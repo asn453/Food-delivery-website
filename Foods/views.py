@@ -26,7 +26,7 @@ def additem(request , food_id):
     if request.method == "POST":
         action = request.POST.get('action')
         food = get_object_or_404(FoodModel,id = food_id)
-        cart_item , created = CartModel.objects.get_or_create(user = request.user , food = food , defaults={"quantity":0})
+        cart_item , created = CartModel.objects.get_or_create(user = request.user , food = food, defaults={"quantity": 1})
 
         if action == 'increase':
             cart_item.quantity += 1
