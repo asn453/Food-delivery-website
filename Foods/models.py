@@ -17,7 +17,7 @@ class CartModel(models.Model):
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return self.user
+        return f"{self.user}-{self.food}"
     
 class Order(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
