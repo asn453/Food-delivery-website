@@ -25,6 +25,3 @@ urlpatterns = [
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-# ADD THIS LINE so Django also serves your CSS/JS files locally during development
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
