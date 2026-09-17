@@ -38,7 +38,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     python -m pip install -r requirements.txt
 
 
-# Copy the source code into the container.
+# Copy the source code into the container
 COPY . .
 
 RUN mkdir -p /app/staticfiles && chown -R appuser:appuser /app
