@@ -13,5 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Say hello
-        run: echo "GitHub Actions is working!"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Check Python version
+        run: python --version
