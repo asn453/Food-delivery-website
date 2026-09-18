@@ -20,3 +20,9 @@ jobs:
 
       - name: Check Python version
         run: python --version
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check Django
+        run: python manage.py check
