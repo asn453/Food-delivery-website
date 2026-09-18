@@ -9,6 +9,28 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: food2
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DB_NAME: food2
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: 127.0.0.1
+      DB_PORT: 5432
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -18,11 +40,11 @@ jobs:
         with:
           python-version: "3.14"
 
-      - name: Check Python version
-        run: python --version
-
       - name: Install dependencies
         run: pip install -r requirements.txt
 
       - name: Check Django
         run: python manage.py check
+
+      - name: Run Django tests
+        run: python manage.py test Foods
