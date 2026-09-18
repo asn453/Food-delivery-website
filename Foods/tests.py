@@ -1,3 +1,14 @@
 from django.test import TestCase
+from .models import FoodModel
 
-# Create your tests here.
+
+class FoodModelTest(TestCase):
+
+    def test_food_name(self):
+        food = FoodModel.objects.create(
+            name="Chicken Burger",
+            price=200,
+            description="This is the best biryani in the world"
+        )
+
+        self.assertEqual(food.name, "Chicken Biryani")
