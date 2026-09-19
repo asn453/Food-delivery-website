@@ -8,7 +8,7 @@ replicaCount: 1
 image:
   repository: ashish453/food--management
   pullPolicy: Always
-  tag: 19d5812c9396642796c207d8f4ad4c71d1a6b44f
+  tag: 44cd1077b153bb4a88246f079fb7067a7930ed10
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
