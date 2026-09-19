@@ -57,3 +57,6 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t ashish453/food--management:latest .
+      
+      - name: Push Docker image
+        run: docker push ashish453/food--management:latest
