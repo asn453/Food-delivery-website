@@ -62,7 +62,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t ashish453/food--management:latest .
+        run: docker build -t ashish453/food--management:${{ github.sha }} .
       
       - name: Push Docker image
-        run: docker push ashish453/food--management:latest
+        run: docker push ashish453/food--management:${{ github.sha }}
